@@ -25,3 +25,17 @@ code {
 .done{
   text-decoration: line-through;
 }
+.txt{
+  display: block;
+  width: 231px;
+  margin: 0 auto;
+  padding: 100px 0 50px 0;
+}
+.no{
+  font-size: 24px;
+  margin: auto;
+  width: 106px;
+}
+.inpt {
+  padding: 0px 0 1rem 0;;
+}
