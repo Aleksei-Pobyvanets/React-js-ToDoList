@@ -4,6 +4,8 @@ import Context from './context'
 import AddTodo from './todo/AddTodo';
 
 
+
+
 function App() {
   const [todos, setTodos] = React.useState([
     {id: 1, completed: true, title: 'Купить хлеб'},
@@ -25,6 +27,10 @@ function App() {
     setTodos(todos.filter(todo => todo.id !== id))
   }
 
+  function todosStatus(todos, boolion) {
+    return todos.filter(todo => todo.completed === boolion)
+  }
+
   function addTodo(title){
     setTodos(todos.concat([{
       title,
@@ -40,8 +46,12 @@ function App() {
 
         <AddTodo onCreate1={addTodo} />
 
-        {todos.length ? <TodoList todos={todos} onToggle={toggleTodo} /> : <p className="no">No todos!</p> }
-        
+        {todos.length ? <TodoList todos={todosStatus(todos, false)}  onToggle={toggleTodo} /> : <p className="no">No todos!</p> }
+
+        <div>
+        {todos.length ? <TodoList todos={todosStatus(todos, true)}  onToggle={toggleTodo} /> : <p className="no">No todos!</p> }
+        </div>
+
       </div>
     </Context.Provider>
   )

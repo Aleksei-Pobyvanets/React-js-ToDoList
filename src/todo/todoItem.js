@@ -53,5 +53,3 @@ TodoItem.propTypes = {
 }
 
 export default TodoItem
-
-// 48:00 видео 
