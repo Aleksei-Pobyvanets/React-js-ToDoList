@@ -1,8 +1,6 @@
 import React from 'react';
 import TodoList from './todo/todoList'
-import Context from './context'
 import AddTodo from './todo/AddTodo';
-
 
 
 
@@ -22,9 +20,9 @@ function App() {
       return todo
     }))
   }
-
-  function removeTodo(id){
-    setTodos(todos.filter(todo => todo.id !== id))
+  
+  function removeTodo(id) {
+    return setTodos(todos.filter(todo => todo.id !== id))
   }
 
   function todosStatus(todos, boolion) {
@@ -40,20 +38,22 @@ function App() {
   }
 
   return (
-    <Context.Provider value={{ removeTodo }}>
       <div className="wrapper">
         <h1 className="txt">React ToDo List</h1>
 
         <AddTodo onCreate1={addTodo} />
+        
+        <div className='ulList'>
+          <div>
+            {todos.length ? <TodoList todos={todosStatus(todos, false)} removeTodo={removeTodo} onToggle={toggleTodo} /> : <p className="no">No todos!</p> }
+          </div>
+          <div>
+            {todos.length ? <TodoList todos={todosStatus(todos, true)} removeTodo={removeTodo} onToggle={toggleTodo}  /> : <p className="no">No todos!</p>}
+          </div>
+        </div>   
 
-        {todos.length ? <TodoList todos={todosStatus(todos, false)}  onToggle={toggleTodo} /> : <p className="no">No todos!</p> }
-
-        <div>
-        {todos.length ? <TodoList todos={todosStatus(todos, true)}  onToggle={toggleTodo} /> : <p className="no">No todos!</p> }
-        </div>
 
       </div>
-    </Context.Provider>
   )
 }
 

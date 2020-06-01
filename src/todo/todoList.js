@@ -7,17 +7,18 @@ const styles ={
         listStyle: 'none',
         margin: 0,
         padding: 0,
-        width: '300px',
-        float: "right"
+        width: '290px',
     }
 }
 
 function TodoList(props){
+    const {todos, onToggle, removeTodo } = props
+    console.log(todos)
     return (
-    <div className="wdth">
+    <div className="wdth" >
         <ul style={styles.ul}>
-            { props.todos.map((todo, index) => {
-                return <TodoItem todo={todo} key={todo.id} index={index} onChange={props.onToggle} />
+            {todos && todos.map((todo, index) => {
+                return <TodoItem removeTodo={removeTodo} todo={todo} key={todo.id} index={index} onChange={onToggle} />
             }) }
         </ul>
     </div>

@@ -15,8 +15,8 @@ function AddTodo({onCreate1}){
 
     return (
         <form className="inpt" onSubmit={submitHandler}>
-            <input value={value} onChange={event => setValue(event.target.value)} />
-            <button type='submit'>Add todo</button>
+            <input className='inptArea' value={value} onChange={event => setValue(event.target.value)} />
+            <button type='submit' className='inptBtn'>Add todo</button>
         </form>
     )
 }
