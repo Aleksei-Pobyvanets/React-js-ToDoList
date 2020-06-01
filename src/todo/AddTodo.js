@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import AddTodoCss from './AddTodo.modul.css';
 
 function AddTodo({onCreate1}){
     const [value, setValue] = useState('')

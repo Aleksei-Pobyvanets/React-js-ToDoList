@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import TodoItem from './todoItem'
+import TodoListCss from './todolist.modul.css'
 
 const styles ={
     ul: {
@@ -13,7 +14,6 @@ const styles ={
 
 function TodoList(props){
     const {todos, onToggle, removeTodo } = props
-    console.log(todos)
     return (
     <div className="wdth" >
         <ul style={styles.ul}>

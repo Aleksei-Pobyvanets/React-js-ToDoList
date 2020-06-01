@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import TodoList from './todoList'
+import todoItemCss from './todoItem.modul.css'
 
 const styles = {
     li: {
@@ -15,6 +16,7 @@ const styles = {
     input: {
         marginRight: '1rem'
     }
+    
 }
 
 function TodoItem({ todo, index, onChange, removeTodo }) {
@@ -39,13 +41,11 @@ function TodoItem({ todo, index, onChange, removeTodo }) {
             {todo.title}
         </span>
         
-        
         <button 
             className='rm'
             onClick={() => removeTodo(todo.id) }
         >&times;</button>
        
-
     </li>
 
     )
