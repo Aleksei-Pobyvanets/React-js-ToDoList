@@ -1,9 +1,7 @@
 import React from 'react';
-import TodoList from './todo/todoList'
-import AddTodo from './todo/AddTodo';
-import './App.css'
-
-
+import TodoList from './todoList/todoList'
+import AddTodo from './AddTodo/AddTodo';
+import styles from './styles.module.css'
 
 function App() {
   const [todos, setTodos] = React.useState([
@@ -22,7 +20,7 @@ function App() {
     }))
   }
   function renderUl(completed, todos) {
-    return todos.length ? <TodoList todos={todosStatus(todos, completed)} removeTodo={removeTodo} onToggle={toggleTodo} /> : <p className="no">No todos!</p>
+    return todos.length ? <TodoList todos={todosStatus(todos, completed)} removeTodo={removeTodo} onToggle={toggleTodo} /> : <p className={styles.no}>No todos!</p>
   }
   
   function removeTodo(id) {
@@ -42,12 +40,12 @@ function App() {
   }
 
   return (
-      <div className="wrapper">
-        <h1 className="txt">React ToDo List</h1>
+      <div className={styles.wrapper}>
+        <h1 className={styles.txt}>React ToDo List</h1>
 
         <AddTodo onCreate1={addTodo} />
         
-        <div className='ulList'>
+        <div className={styles.ulList}>
           <div>
             {renderUl(false, todos)}
           </div>

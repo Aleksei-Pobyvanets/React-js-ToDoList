@@ -1,39 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import TodoList from './todoList'
-import todoItemCss from './todoItem.modul.css'
+import styles from './styles.module.css'
 
-const styles = {
-    li: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alingItems: 'center',
-        padding: '.5rem 1rem', 
-        border: '1px solid #ccc',
-        borderRadius: '4px',
-        marginBottom: '.5rem',
-    },
-    input: {
-        marginRight: '1rem'
-    }
-    
-}
 
 function TodoItem({ todo, index, onChange, removeTodo }) {
     const classes = []
     
     if(todo.completed){
-        classes.push('done')
+        classes.push(styles.done)
     }
 
     return (
-    <li style={styles.li} > 
+    <li className={styles.li} > 
         <span className={classes.join(' ')}>
             <input 
-                className="checkBox2"
+                className={styles.checkBox2}
                 type='checkbox' 
                 checked={todo.completed} 
-                style={styles.input} 
+                className={styles.input} 
                 onChange={() => onChange(todo.id)} 
             />
             <strong>{index + 1}</strong> 
@@ -42,7 +26,7 @@ function TodoItem({ todo, index, onChange, removeTodo }) {
         </span>
         
         <button 
-            className='rm'
+            className={styles.rm}
             onClick={() => removeTodo(todo.id) }
         >&times;</button>
        

@@ -1,22 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TodoItem from './todoItem'
-import TodoListCss from './todolist.modul.css'
+import TodoItem from '../TodoItem/todoItem'
+import styles from './styles.module.css'
 
-const styles ={
-    ul: {
-        listStyle: 'none',
-        margin: 0,
-        padding: 0,
-        width: '290px',
-    }
-}
 
 function TodoList(props){
     const {todos, onToggle, removeTodo } = props
     return (
-    <div className="wdth" >
-        <ul style={styles.ul}>
+    <div className={styles.wdth} >
+        <ul className={styles.ul}>
             {todos && todos.map((todo, index) => {
                 return <TodoItem removeTodo={removeTodo} todo={todo} key={todo.id} index={index} onChange={onToggle} />
             }) }
