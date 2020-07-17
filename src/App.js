@@ -1,7 +1,24 @@
 import React from 'react';
 import TodoList from './todoList/todoList'
 import AddTodo from './AddTodo/AddTodo';
-import styles from './styles.module.css'
+import styles from './styles.module.css';
+
+class Gg extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={apiResponse:""};
+  }
+
+  callAPI(){
+    fetch("http://localhost:3000/testApi")
+    .then(res => res.text())
+    .then(res => this.setState({apiResponse: res}));
+  }
+
+  componentWillMount(){
+    this.callAPI();
+  }
+}
 
 function App() {
   const [todos, setTodos] = React.useState([
@@ -54,6 +71,9 @@ function App() {
           </div>
         </div>   
 
+        <div>
+          <p>{this.state.apiResponse}</p>
+        </div>
 
       </div>
   )
